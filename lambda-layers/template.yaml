@@ -1,0 +1,99 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  lambda layers
+
+
+
+Resources:
+
+
+
+
+  PythonCommonDependencies:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: PythonCommonDependencies
+      Description: Python Common Dependencies
+      ContentUri: ./layers/python-common-dependecies
+      CompatibleArchitectures:
+        - x86_64
+      CompatibleRuntimes:
+        - python3.7
+        - python3.8
+        - python3.9
+        - python3.10
+        - python3.11
+        - python3.12
+      LicenseInfo: 'MIT'
+      RetentionPolicy: Retain
+    Metadata:
+      BuildMethod: python3.11
+      BuildArchitecture: x86_64
+
+
+
+
+
+
+  HelloModule:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: HelloModule
+      Description: Hello Module
+      ContentUri: ./layers/hello-module
+      CompatibleArchitectures:
+        - x86_64
+      CompatibleRuntimes:
+        - python3.7
+        - python3.8
+        - python3.9
+        - python3.10
+        - python3.11
+        - python3.12
+      LicenseInfo: 'MIT'
+      RetentionPolicy: Retain
+    Metadata:
+      BuildMethod: python3.11
+      BuildArchitecture: x86_64
+
+
+
+
+
+
+  Pyodbc:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: Pyodbc
+      Description: Python Pyodbc Dependencies
+      ContentUri: ./layers/pyodbc
+      CompatibleArchitectures:
+        - x86_64
+      CompatibleRuntimes:
+        - python3.8
+        - python3.9
+        - python3.10
+        - python3.11
+        - python3.12
+      LicenseInfo: 'MIT'
+      RetentionPolicy: Retain
+      # lasciare commentata o eliminare la sezione 'Metadata' in quanto per questo layer non è necessaria l'operazione di build
+    # Metadata:
+    #   BuildMethod: python3.9
+    #   BuildArchitecture: x86_64
+
+
+Outputs:
+  PythonCommonDependenciesARN:
+    Description: "Python Common Dependencies ARN"
+    Value: !Ref PythonCommonDependencies
+
+  HelloModuleARN: 
+    Description: "Hello Module ARN"
+    Value: !Ref HelloModule
+
+  PyodbcARN: 
+    Description: "Pyodbc ARN"
+    Value: !Ref Pyodbc
+

@@ -1,0 +1,21 @@
+# More information about the configuration file can be found here:
+# https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-config.html
+version = 0.1
+
+[default]
+stack_name = "lambda-layers"
+cached = true
+parallel = true
+capabilities = "CAPABILITY_IAM"
+confirm_changeset = true
+resolve_s3 = true
+[default.deploy.parameters]
+stack_name = "lambda-layers"
+resolve_s3 = true
+s3_prefix = "lambda-layers"
+region = "eu-central-1"
+profile = "lab12"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+image_repositories = []
+
