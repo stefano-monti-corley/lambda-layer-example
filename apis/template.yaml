@@ -20,9 +20,9 @@ Resources:
       Architectures:
         - x86_64
       Layers:
-        - arn:aws:lambda:eu-central-1:758619197727:layer:PythonCommonDependencies:3
-        - arn:aws:lambda:eu-central-1:758619197727:layer:HelloModule:2
-        - arn:aws:lambda:eu-central-1:758619197727:layer:Pyodbc:8                                                                       
+        - !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:layer:PythonCommonDependencies:1 # aggiornare la versione del layer in caso di avanzamento 
+        - !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:layer:HelloModule:1 # aggiornare la versione del layer in caso di avanzamento 
+        - !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:layer:Pyodbc:1 # aggiornare la versione del layer in caso di avanzamento                                                            
       Events:
         HelloWorld:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
